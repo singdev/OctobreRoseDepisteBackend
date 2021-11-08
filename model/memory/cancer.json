@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "libelle": "Cancer du sein",
+    "organe": "Sein",
+    "description": "Lorem ipsum dolor site ...",
+    "image": "http://gobonus.ga/img/bonus.png"
+  },
+  {
+    "id": "2",
+    "libelle": "Cancer des ovaires",
+    "organe": "Ovaire",
+    "description": "Lorem ipsum dolor site ...",
+    "image": "http://gobonus.ga/img/bonus.png"
+  },
+  {
+    "id": "3",
+    "libelle": "Cancer du cole de l'uterus",
+    "organe": "Uterus",
+    "description": "Lorem ipsum dolor site ...",
+    "image": "http://gobonus.ga/img/bonus.png"
+  }
+]

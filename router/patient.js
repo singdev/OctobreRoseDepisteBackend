@@ -1,18 +1,25 @@
 const express = require("express");
 const router = express.Router();
 
+const PatientController = require("../controller/patientController");
+const patientController = new PatientController();
+
 module.exports = (app) => {
   
-  router.post("/", (req, res) => {
-    res.send("Create patient");
+  router.post("/", async (req, res) => {
+    await patientController.createNewPatient(req, res);
   });
   
-  router.get("/:id", (req, res) => {
-    res.send("Get by Id");
+  router.get("/:id", async (req, res) => {
+    await patientController.findPatientById(req, res);
   });
   
-  router.put("/:id", (req, res) => {
-    res.send("Update patient");
+  router.get("/", async (req, res) => {
+    await patientController.findAllPatient(req, res);
+  });
+  
+  router.put("/:id", async (req, res) => {
+    await patientController.updatePatient(req, res);
   });
   
   return router;
