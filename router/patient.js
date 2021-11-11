@@ -11,8 +11,8 @@ module.exports = (app) => {
   });
   
   router.get("/:id", async (req, res) => {
-    await patientController.findPatientById(req, res);
-  });
+          await patientController.findPatientById(req, res);
+      });
   
   router.get("/", async (req, res) => {
     await patientController.findAllPatient(req, res);
