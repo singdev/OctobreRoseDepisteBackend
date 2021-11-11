@@ -6,7 +6,8 @@ const centreController = new CentreController();
 
 module.exports = (app) => {
   
-  router.post("/", async (req, res) => {
+  // router.post("/", app.oauth.authorise(), async (req, res) => {
+    router.post("/", async (req, res) => {
     await centreController.createNewCentre(req, res);
   });
   
@@ -18,7 +19,7 @@ module.exports = (app) => {
     await centreController.findAllCentre(req, res);
   });
   
-  router.put("/:id", async (req, res) => {
+  router.put("/:id",async (req, res) => {
     await centreController.updateCentre(req, res);
   });
   
