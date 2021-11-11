@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8a5fe48082d64c17225d43db26126969c380dfe
 const CrenauService = require("../services/mongodb/crenauService");
 
 module.exports = class {
@@ -62,6 +66,10 @@ module.exports = class {
       res.send(err);
     }
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8a5fe48082d64c17225d43db26126969c380dfe
   async deleteCrenau(req, res) {
     try {
       const result = await this.crenauService.delete(req.params.id);

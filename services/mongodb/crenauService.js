@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 const Crenau = require("../../model/mongodb/crenau");
+=======
+
+const Crenau = require("../../model/mongodb/creneaux");
+>>>>>>> b8a5fe48082d64c17225d43db26126969c380dfe
 
 module.exports = class {
   
