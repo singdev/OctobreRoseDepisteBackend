@@ -4,6 +4,9 @@ const router = express.Router();
 const PatientController = require("../controller/patientController");
 const patientController = new PatientController();
 
+const AuthService = require("../services/security/authService");
+const authService = new AuthService();
+
 module.exports = (app) => {
   
   router.post("/", async (req, res) => {
@@ -14,7 +17,9 @@ module.exports = (app) => {
           await patientController.findPatientById(req, res);
       });
   
-  router.get("/", async (req, res) => {
+  router.get("/", 
+  (req, res, next) => authService.authorise(req, res, next),
+   async (req, res) => {
     await patientController.findAllPatient(req, res);
   });
   

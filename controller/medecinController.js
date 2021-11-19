@@ -1,6 +1,6 @@
 const MedecinService = require("../services/mongodb/medecinService");
 const AccountService = require("../services/mongodb/accountService");
-const crypto = require("../services/shared/cryptoService");
+const crypto = require("../services/security/cryptoService");
 
 module.exports = class {
   
