@@ -1,19 +1,34 @@
 const MedecinService = require("../services/mongodb/medecinService");
-
-
+const AccountService = require("../services/mongodb/accountService");
+const crypto = require("../services/shared/cryptoService");
 
 module.exports = class {
   
   constructor(){
     this.medecinService = new MedecinService();
+    this.accountService = new AccountService();
   }
   
   async createNewMedecin(req, res) {
     try {
-      const result = await this.medecinService.create(req.body);
-      if(result){
-        res.status(201);
-        res.send(result);
+      const accountBody = {
+        username: req.body.username,
+        password: crypto.encrypt(req.body.password),
+        fullname: req.body.nom + " " + req.body.prenom
+      };
+      let account = await this.accountService.getByUsername(req.body.username);
+      if(account == null){
+        account = await this.accountService.create(accountBody);
+      }
+      if(account){
+        req.body.account = account;
+        const result = await this.medecinService.create(req.body);
+        if(result){
+          res.status(201);
+          res.send(result);
+        } else {
+          res.sendStatus(400);
+        } 
       } else {
         res.sendStatus(400);
       }

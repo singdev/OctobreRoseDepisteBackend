@@ -6,5 +6,6 @@ module.exports = mongoose.model("Medecin", mongoose.Schema({
   email: { type: String},
   telephone: { type: Number },
   sexe: { type: String, enum: ["Female", "Male"]},
-  specialite:{type: String}
+  specialite:{type: String},
+  account: { type: mongoose.Types.ObjectId, ref: "Account"}
 }));
