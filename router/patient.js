@@ -13,7 +13,7 @@ module.exports = (app) => {
     await patientController.createNewPatient(req, res);
   });
   
-  router.get("/:id", async (req, res) => {
+  router.get("/:id",(req, res, next) => authService.authorise(req, res, next),async (req, res) => {
           await patientController.findPatientById(req, res);
       });
   
