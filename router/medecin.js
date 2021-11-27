@@ -6,7 +6,7 @@ const medecinController = new MedecinController();
 
 module.exports = (app) => {
   
-  router.post("/", async (req, res) => {
+  router.post("/",(req, res, next) => authService.authorise(req, res, next), async (req, res) => {
     await medecinController.createNewMedecin(req, res);
   });
   
