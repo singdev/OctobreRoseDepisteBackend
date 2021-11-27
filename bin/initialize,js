@@ -1,6 +1,6 @@
-const Medecin = require("../model/mongodb/medecin.js");
-const Account = require("../model/mongodb/account.js");
-const crypto = require("../serivex/security/cryptoService.js");
+const Medecin = require("../model/mongodb/medecin");
+const Account = require("../model/mongodb/account");
+const crypto = require("../services/security/cryptoService");
 
 module.exports = async () => {
     // Verifier si un utilisateur Admin existe deja
