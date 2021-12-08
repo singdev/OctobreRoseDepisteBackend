@@ -1,12 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
+const AccessControl = require("../services/security/authService");
+const accessControl = new AccessControl();
+
 const MedecinController = require("../controller/medecinController");
 const medecinController = new MedecinController();
 
 module.exports = (app) => {
   
-  router.post("/",(req, res, next) => authService.authorise(req, res, next), async (req, res) => {
+  router.post("/",(req, res, next) => accessControl.authorise(req, res, next), async (req, res) => {
     await medecinController.createNewMedecin(req, res);
   });
   

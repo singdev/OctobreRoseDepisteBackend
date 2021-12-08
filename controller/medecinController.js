@@ -12,7 +12,7 @@ module.exports = class {
   async createNewMedecin(req, res) {
     try {
       const accountBody = {
-        username: req.body.username,
+        username: req.body.email,
         password: crypto.encrypt(req.body.password),
         fullname: req.body.nom + " " + req.body.prenom
       };

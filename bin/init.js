@@ -13,6 +13,7 @@ module.exports = async () => {
          password: crypto.encrypt(process.env.ADMIN_PASSWORD),
          fullname: "Operator",
          isAdmin: true,
+         isActive: true
       });
        const account = await newAdmin.save();
        const newMedecin = new Medecin({

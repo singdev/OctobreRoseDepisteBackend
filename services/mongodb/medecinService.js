@@ -8,18 +8,22 @@ module.exports = class {
   }
   
   async findById(id){
-    return await Medecin.findOne({ _id: id});
+    return await Medecin.findOne({ _id: id}).populate("account").exec();
+  }
+  
+  async findByAccount(account){
+    return await Medecin.findOne({ account }).populate("account").exec();
   }
   
   async findAll(){
-    return await Medecin.find({});
+    return await Medecin.find({}).populate("account").exec();
   }
   
   async update(id, data){
-    return await Medecin.findOneAndUpdate({ _id: id}, data, { new: true});
+    return await Medecin.findOneAndUpdate({ _id: id}, data, { new: true}).populate("account").exec();
   }
   
   async delete(id){
-    return await Medecin.findOneAndDelete({ _id: id});
+    return await Medecin.findOneAndDelete({ _id: id}).populate("account").exec();
   }
 }
