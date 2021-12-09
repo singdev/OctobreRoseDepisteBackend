@@ -8,11 +8,15 @@ module.exports = class {
   }
   
   async findById(id){
-    return await Creneau.findOne({ _id: id});
+    return await Creneau.findOne({ _id: id}).populate("medecin").exec();
+  }
+  
+  async findByMedecin(medecin){
+    return await Creneau.find({ medecin}).populate("medecin").exec();
   }
   
   async findAll(){
-    return await Creneau.find({});
+    return await Creneau.find({}).populate("medecin").exec();
   }
   
   async update(id, data){

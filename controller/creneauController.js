@@ -49,6 +49,20 @@ module.exports = class {
     }
   }
   
+  async findAllCreneauByMedecin(req, res) {
+    try {
+      const result = await this.creneauService.findByMedecin(req.params.medecin);
+      if(result){
+        res.send(result);
+      } else {
+        res.sendStatus(400);
+      }
+    } catch(err){
+      res.status(500);
+      res.send(err);
+    }
+  }
+  
   async updateCreneau(req, res) {
     try {
       const result = await this.creneauService.update(req.params.id, req.body);

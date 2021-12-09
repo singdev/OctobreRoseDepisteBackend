@@ -41,6 +41,7 @@ module.exports = class {
   async findMedecinById(req, res) {
     try {
       const result = await this.medecinService.findById(req.params.id);
+      console.log(result);
       if(result){
         res.send(result);
       } else {

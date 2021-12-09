@@ -24,7 +24,12 @@ module.exports = (app) => {
       await accessControl.authorise(req, res, next);
     },
     async (req, res) => {
-      res.send(await medecinService.findByAccount(req.user.account._id));
+      const user = await medecinService.findByAccount(req.user.account._id);
+      if(user){
+        res.send(user);
+      } else {
+        res.sendStatus(404);
+      }
     });
 
   router.put("/account/:id",

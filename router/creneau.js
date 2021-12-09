@@ -22,6 +22,10 @@ module.exports = (app) => {
     await creneauController.findAllCreneau(req, res);
   });
   
+  router.get("/search/by-medecin/:medecin", async (req, res) => {
+    await creneauController.findAllCreneauByMedecin(req, res);
+  });
+  
   router.put("/:id",async (req, res) => {
     await creneauController.updateCreneau(req, res);
   });

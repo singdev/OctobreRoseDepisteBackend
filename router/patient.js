@@ -23,6 +23,12 @@ module.exports = (app) => {
     await patientController.findAllPatient(req, res);
   });
   
+  router.get("/search/by-medecin/:medecin", 
+  (req, res, next) => authService.authorise(req, res, next),
+   async (req, res) => {
+    await patientController.findPatientByMedecin(req, res);
+  });
+  
   router.put("/:id", async (req, res) => {
     await patientController.updatePatient(req, res);
   });
